@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shayla Lee: Journey to Meow Wolf Creative Director</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #45b7d1;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --gold: #f39c12;
+            --purple: #9b59b6;
+            --green: #27ae60;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f39c12);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        .section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        .point-a {
+            background: linear-gradient(135deg, var(--light) 0%, #bdc3c7 100%);
+        }
+
+        .transformation {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--dark) 100%);
+            color: white;
+        }
+
+        .point-b {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--primary) 100%);
+            color: white;
+        }
+
+        .evidence {
+            background: var(--dark);
+            color: white;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--primary) 100%);
+            color: white;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .journey-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .skill-card:hover {
+            border-color: var(--gold);
+            transform: scale(1.05);
+        }
+
+        .impact-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: white;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(180deg, var(--gold), var(--primary));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin: 3rem 0;
+            padding: 0 2rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            text-align: right;
+            margin-right: 50%;
+        }
+
+        .timeline-item:nth-child(even) {
+            text-align: left;
+            margin-left: 50%;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .timeline-date {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 1.1rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+        }
+
+        .cta-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--purple);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                margin-left: 4rem;
+                margin-right: 0;
+                text-align: left;
+            }
+
+            .journey-grid,
+            .skills-grid,
+            .impact-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .meow-wolf-connection {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+        }
+
+        .connection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin: 3rem 0;
+        }
+
+        .connection-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            border-left: 5px solid var(--primary);
+        }
+
+        .vs-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+        }
+
+        .vs-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 2rem;
+            align-items: center;
+            margin: 3rem 0;
+        }
+
+        .vs-divider {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-align: center;
+        }
+
+        .competitor-side,
+        .shayla-side {
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        .competitor-side {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .shayla-side {
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+        }
+
+        @media (max-width: 768px) {
+            .vs-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .vs-divider {
+                order: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Shayla Lee</h1>
+            <p class="subtitle">From Interaction Designer to<br>Meow Wolf Creative Director</p>
+            <p>The journey of building impossible interactive experiences</p>
+        </div>
+        <div class="scroll-indicator">
+            <div>↓ Scroll to explore the journey ↓</div>
+        </div>
+    </section>
+
+    <!-- Point A: Where We Started -->
+    <section class="section point-a">
+        <div class="container">
+            <h2 class="section-title fade-in">Point A: The Foundation</h2>
+            <div class="journey-grid">
+                <div class="journey-card fade-in">
+                    <div class="card-icon">🎓</div>
+                    <h3 class="card-title">Background & Training</h3>
+                    <p>4.0 GPA at Parsons (#1 design school in the US, #3 globally). Ran student organization and
+                        impressed faculty, leading to recommendations for high-value positions.</p>
+                </div>
+                <div class="journey-card fade-in">
+                    <div class="card-icon">💡</div>
+                    <h3 class="card-title">Research & Innovation</h3>
+                    <p><a href="https://parsons.edu/dt-2024/2024/05/12/adversarial-robots-as-creative-collaborators/">Published
+                            robotics research</a> as an undergrad, presented at HRI in Colorado (first Meow Wolf
+                        visit!). Led group projects in class, clubs, and hackathons with consistent success.</p>
+                </div>
+                <div class="journey-card fade-in">
+                    <div class="card-icon">🔧</div>
+                    <h3 class="card-title">Technical Skills</h3>
+                    <p>JavaScript, Python, Unity, Blender applied in projects that impressed faculty. Focus on
+                        perception and embodied interaction systems.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Transformation -->
+    <section class="section transformation">
+        <div class="container">
+            <h2 class="section-title fade-in">The Transformation Journey</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022-2024</div>
+                        <h3 class="timeline-title">DT Study Coordinator</h3>
+                        <p>Managed $24K budget, hired and trained 6 tutors, improved curriculum for 14+ faculty. Early
+                            demonstration of leadership capabilities.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023-2024</div>
+                        <h3 class="timeline-title">Cornell Tech VR Research</h3>
+                        <p>Built pedestrian/vehicle VR simulations for Dr. Wendy Ju's lab. First experience with motion
+                            tracking and Unity at scale.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3 class="timeline-title">New School Project Manager</h3>
+                        <p>Led 10-person team designing 7-page website for 100+ student thesis projects. Coordinated
+                            public exhibitions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024</div>
+                        <h3 class="timeline-title">Menagerie Studios</h3>
+                        <p>Prototyped physical-to-digital interaction systems. Applied academic skills in professional
+                            creative environment.</p>
+                    </div>
+                </div>
+                <div class="timeline-item fade-in">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2024-Present</div>
+                        <h3 class="timeline-title">INTER NYC</h3>
+                        <p>Creative direction and implementation support of multiple installations for 54,000+
+                            visitors in NYC. Mastered TouchDesigner
+                            under pressure for diverse, international audiences.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Point B: Where We Are Now -->
+    <section class="section point-b">
+        <div class="container">
+            <h2 class="section-title fade-in">Point B: Ready for Meow Wolf</h2>
+            <div class="impact-stats fade-in">
+                <div class="stat-card">
+                    <span class="stat-number">54K+</span>
+                    <div class="stat-label">Visitors Impacted</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <div class="stat-label">Multimedia Installations</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">300</span>
+                    <div class="stat-label">Daily Visitor Capacity</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">3</span>
+                    <div class="stat-label">Parallel Projects Led</div>
+                </div>
+            </div>
+            <div class="skills-grid fade-in">
+                <div class="skill-card">
+                    <h3>🎯 Interactive Experience Architecture</h3>
+                    <p>TouchDesigner, motion tracking systems, physical sensor data, sound, lighting, projection mapping
+                    </p>
+                </div>
+                <div class="skill-card">
+                    <h3>👥 Cross-Functional Leadership</h3>
+                    <p>10+ person teams, vendor management, stakeholder coordination, client communications &
+                        collaboration</p>
+                </div>
+                <div class="skill-card">
+                    <h3>⚡ Technical Problem Solving</h3>
+                    <p>Real-time systems, rapid prototyping, data collection, documentation for future maintenance</p>
+                </div>
+                <div class="skill-card">
+                    <h3>🎨 Creative Production</h3>
+                    <p>Quality assurance, guest experience optimization, event customization</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evidence & Impact -->
+    <section class="section evidence">
+        <div class="container">
+            <h2 class="section-title fade-in">The Evidence</h2>
+            <div class="journey-grid">
+                <div class="journey-card fade-in">
+                    <div class="card-icon">🚀</div>
+                    <h3 class="card-title">INTER NYC Impact</h3>
+                    <p>Improved visitor experience for 100-300 daily guests by identifying frustrations and implementing
+                        solutions. Learned TouchDesigner on deadline to drive large screens, projections, water, light,
+                        and sound effects.</p>
+                </div>
+                <div class="journey-card fade-in">
+                    <div class="card-icon">⚙️</div>
+                    <h3 class="card-title">Technical Mastery</h3>
+                    <p>Processing OSC input and Kinect Azure data for responsive installations. Built
+                        physical-to-digital interaction systems using customized hardware and experimental web
+                        interfaces.</p>
+                </div>
+                <div class="journey-card fade-in">
+                    <div class="card-icon">👨‍💼</div>
+                    <h3 class="card-title">Leadership Under Pressure</h3>
+                    <p>Led parallel development of 3 motion-tracked installations while supporting total relaunch of the
+                        2-story exhibit. Created project briefs, timelines, tech specs, and visual references.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meow Wolf Connection -->
+    <section class="section meow-wolf-connection">
+        <div class="container">
+            <h2 class="section-title fade-in">The Meow Wolf Connection</h2>
+            <div class="connection-grid">
+                <div class="connection-card fade-in">
+                    <h3>🎪 Immersive Experience Expertise</h3>
+                    <p><strong>Meow Wolf Needs:</strong> "Interactive experiences that transport audiences into
+                        fantastic realms"</p>
+                    <p><strong>Shayla Delivers:</strong> 54K+ visitors transported through TouchDesigner-powered
+                        interactive installations with motion tracking, digital displays, projection, lighting, and
+                        sound
+                        integration</p>
+                </div>
+                <div class="connection-card fade-in">
+                    <h3>🏗️ "Out of This World" Vision</h3>
+                    <p><strong>Meow Wolf Needs:</strong> "Exhibition unlike anything we've ever seen or made before"</p>
+                    <p><strong>Shayla Delivers:</strong> Systems that scale ambitious worldbuilding into real, playable,
+                        touchable experiences—no matter how weird or wild the concept.</p>
+                </div>
+                <div class="connection-card fade-in">
+                    <h3>🤝 Collaborative Creativity</h3>
+                    <p><strong>Meow Wolf Values:</strong> "Creating together amplifies possibilities"</p>
+                    <p><strong>Shayla Embodies:</strong> Cross-functional team leadership, experience aligning
+                        designers, developers, and fabricators around a unified vision through collaborative iteration
+                    </p>
+                </div>
+                <div class="connection-card fade-in">
+                    <h3>⚡ Outsiders Welcome</h3>
+                    <p><strong>Meow Wolf Culture:</strong> "Space for everyone to feel like they belong"</p>
+                    <p><strong>Shayla Champions:</strong> ADA-conscious design and international visitor-inclusive
+                        creative environments that welcome diverse NYC audiences</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Competition Analysis -->
+    <section class="section vs-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Why Shayla Wins</h2>
+            <div class="vs-grid fade-in">
+                <div class="competitor-side">
+                    <h3>💼 Typical Candidates</h3>
+                    <ul>
+                        <li>Traditional themed entertainment</li>
+                        <li>Museum/gallery exhibition experience</li>
+                        <li>Film/TV production background</li>
+                        <li>Agency creative director experience</li>
+                        <li>Established artist networks</li>
+                    </ul>
+                    <p><strong>Gap:</strong> They conceptualize visionary experiences but defer to technical teams to
+                        make their ideas buildable</p>
+                </div>
+                <div class="vs-divider">VS</div>
+                <div class="shayla-side">
+                    <h3>⚡ Shayla's Advantage</h3>
+                    <ul>
+                        <li>Tech-native creative who can build experiences herself and with a team</li>
+                        <li>Real-world interactive systems expertise</li>
+                        <li>Cross-disciplinary fluency (art + tech + code)</li>
+                        <li>Startup agility & rapid iteration mindset</li>
+                        <li>Proven scale operations (54K+ visitors)</li>
+                    </ul>
+                    <p><strong>Difference:</strong> I don't just envision impossible experiences—I know how
+                        to bring them to life</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section cta">
+        <div class="container">
+            <div class="cta-content fade-in">
+                <h2 class="section-title">Ready to Create Something<br>"Out of This World"</h2>
+                <p style="font-size: 1.3rem; margin-bottom: 2rem;">I'm not just another creative director—I'm the
+                    technical creative leader who can make Meow Wolf's most ambitious interactive visions actually work
+                    for East Coast audiences.</p>
+                <p style="font-size: 1.1rem; opacity: 0.9;">Let's build an exhibition that pushes the boundaries of
+                    immersive art while ensuring every technical system works flawlessly for NYC visitors from
+                    around the world.</p>
+                <a href="https://bruinmocha.wixstudio.com/shaylalee" class="cta-button">Let's Create Worlds
+                    Together!</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const rate = scrolled * -0.5;
+            hero.style.transform = `translateY(${rate}px)`;
+        });
+    </script>
+</body>
+
+</html>
